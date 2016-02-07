@@ -78,3 +78,25 @@ for word in my_data:
 
 F2_hat = Z*Z
 print(F2_hat)
+
+#1 part e
+from collections import Counter
+data = Counter(my_data)
+mode_cell = data.most_common(1)  # Returns the highest occurring item
+mode = int(mode_cell[0][0])
+print(mode)
+
+#1 part f
+counter = 0
+for word in my_data:
+	x = int(word)
+	if counter == 0:
+		mode_hat = x
+		counter = counter + 1
+	else:
+		if x == mode_hat:
+			counter = counter + 1
+		else:
+			counter = counter - 1
+
+print(mode_hat)
