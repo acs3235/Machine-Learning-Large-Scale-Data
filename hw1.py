@@ -34,15 +34,15 @@ for word in my_data:
 	x = int(word)
 	h = (a*x + b) % M
 	if h < my_min:
-		# print("h is")
-		# print(h)
-		# print("when x is")
-		# print(x)
 		my_min = h
 
-#F0_hat = M/my_min
+if my_min == 0:
+	F0_hat = 'infinity'
+else:
+	F0_hat = M/my_min
 
-#print(F0_hat)
+
+print(F0_hat)
 
 #1 part c
 table = [0]*m
@@ -100,3 +100,29 @@ for word in my_data:
 			counter = counter - 1
 
 print(mode_hat)
+
+#2 part a
+a = 134598
+b = 542234
+M = 600011
+
+my_min = M;
+
+with open(’pubmed−word−stream.csv’,’r’) as input_file:
+for line in input_file:
+	reader = csv.reader(line)
+	my_data = []
+	for row in reader:
+		my_data.append(int(row[0]))
+
+	for x in my_data:
+		h = (a*x + b) % M
+		if h < my_min:
+			my_min = h
+
+if my_min == 0:
+	F0_hat_2 = 'infinity'
+else:
+	F0_hat_2 = M/my_min
+
+print(F0_hat_2)
