@@ -63,3 +63,18 @@ for entry in table:
 F2 = sum(table)
 print(F2)
 
+#1 part d
+with open('f2-hash.csv', 'rb') as f:
+	reader = csv.reader(f)
+	z_hash = []
+	for row in reader:
+		z_hash.append(int(row[0]))
+
+Z = 0
+
+for word in my_data:
+	x = int(word)
+	Z = Z + z_hash[x-1]
+
+F2_hat = Z*Z
+print(F2_hat)
