@@ -126,3 +126,31 @@ else:
 	F0_hat_2 = M/my_min
 
 print(F0_hat_2)
+
+
+#2 part b
+k = 10
+
+with open(’pubmed−word−stream.csv’,’r’) as input_file:
+for line in input_file:
+	reader = csv.reader(line)
+	my_data = []
+	for row in reader:
+		my_data.append(int(row[0]))
+
+	counts = [0] * k
+	modes = [0] * k
+
+for x in my_data:
+	if x in modes:
+		counts[modes.index(x)] = counts[modes.index(x)] + 1
+	else:
+		if 0 in counts:
+			i = counts.index(0)
+			counts[i] = 1
+			modes[i] = x
+		else:
+			i = 0
+			for count in counts:
+				counts[i] = count - 1
+				i = i + 1
